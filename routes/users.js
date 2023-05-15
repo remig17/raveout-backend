@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
-require("../models/connection");
-const User = require("../models/user");
+require("../models/connections");
+const User = require("../models/users");
 const { checkBody } = require("../modules/checkBody");
 const uid2 = require("uid2");
 const bcrypt = require("bcrypt");
@@ -27,7 +27,7 @@ router.post("/signup", (req, res) => {
           password: hash,
           avatar: "",
           ville: "",
-          styles_musicaux: "",
+          tags: [],
           tickets: [],
           like: [],
         });
@@ -75,14 +75,14 @@ router.put("/cityUpdate", (req, res) => {
 
 //Cette route permet de mettre à jour les musiques favorites de l'utilise via son token qui n'était pas encore ajouté lors de la création du compte
 
-router.put("/musicUpdate", (req, res) => {
-  User.updateOne(
-    { token: req.body.token },
-    { $push: { styles_musicaux: req.body.styles_musicaux } }
-  ).then((data) => {
-    res.json({ result: true, data: data });
-  });
-});
+// router.put("/musicUpdate", (req, res) => {
+//   User.updateOne(
+//     { token: req.body.token },
+//     { $push: { tags: req.body.tags } }
+//   ).then((data) => {
+//     res.json({ result: true, data: data });
+//   });
+// });
 
 //Cette route permet de modifier la photo de profile de l'utilisateur via son token
 router.put("/avatarUpdate", (req, res) => {
