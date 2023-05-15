@@ -10,7 +10,7 @@ const eventSchema = mongoose.Schema({
   organisateur: String,
   Longitude: Number,
   Latitude: Number,
-  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "tags" }],
+  tags: [String],
   tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
 });
 

@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
   password: String,
   avatar: String,
   ville: String,
-  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "tags" }],
+  tags: [String],
   tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
   like: [{ type: mongoose.Schema.Types.ObjectId, ref: "events" }],
 });
