@@ -9,18 +9,18 @@ const bcrypt = require("bcrypt");
 
 router.post("/signup", (req, res) => {
   // Vérifie que les champs soient correctement remplies
-  if (!checkBody(req.body, ["prenom", "email", "password"])) {
+  if (!checkBody(req.body, ["pseudo", "email", "password"])) {
     res.json({ result: false, error: "Missing or empty fields" });
     return;
   }
 
   // Vérifie si l utilisateur est deja inscrit, s'il ne l'est pas, crée un nouvel utilisateur
-  User.findOne({ username: req.body.username }).then((data) => {
+  User.findOne({ pseudo: req.body.pseudo }).then((data) => {
     if (data === null) {
       const hash = bcrypt.hashSync(req.body.password, 10);
 
       const newUser = new User({
-        prenom: req.body.prenom,
+        pseudo: req.body.pseudo,
         email: req.body.email,
         token: uid2(32),
         password: hash,
