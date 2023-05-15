@@ -9,19 +9,19 @@ const bcrypt = require("bcrypt");
 
 router.post("/signup", (req, res) => {
   // Vérifie que les champs soient correctement remplies
-  if (!checkBody(req.body, ["prenom", "email", "password"])) {
+  if (!checkBody(req.body, ["pseudo", "email", "password"])) {
     res.json({ result: false, error: "Missing or empty fields" });
     return;
   }
 
   // Vérifie si l utilisateur est deja inscrit, s'il ne l'est pas, crée un nouvel utilisateur
-  User.findOne({ prenom: { $regex: new RegExp(req.body.prenom, "i") } }).then(
+  User.findOne({ pseudo: { $regex: new RegExp(req.body.pseudo, "i") } }).then(
     (data) => {
       if (data === null) {
         const hash = bcrypt.hashSync(req.body.password, 10);
 
         const newUser = new User({
-          prenom: req.body.prenom,
+          pseudo: req.body.pseudo,
           email: req.body.email,
           token: uid2(32),
           password: hash,
@@ -53,7 +53,7 @@ router.post("/signin", (req, res) => {
   User.findOne({ email: { $regex: new RegExp(req.body.email, "i") } }).then(
     (data) => {
       if (data && bcrypt.compareSync(req.body.password, data.password)) {
-        res.json({ result: true, token: data.token, prenom: data.prenom });
+        res.json({ result: true, token: data.token, pseudo: data.pseudo });
       } else {
         // Soit l utilisateur n'existe pas, soit le mot de passe est faux, renvoie un message d erreur
         res.json({ result: false, error: "User not found or wrong password" });
