@@ -1,9 +1,16 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
+    prenom: String,
+    email: String,
     token: String,
+    password: String,
+    avatar: String,
+    ville: String,
     styles_musicaux: [String],
-    tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'tickets' }]
+    tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'tickets' }],
+    like: [{ type: mongoose.Schema.Types.ObjectId, ref: 'events' }]
+    
   });
   
   const User = mongoose.model('users', userSchema);
