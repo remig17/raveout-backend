@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const eventSchema = mongoose.Schema({
     lieu: String,
     date_debut: Date,
-    hdate_fin: Date,
+    date_fin: Date,
     photo: String,
     organisateur: String,
     Longitude: Number,
