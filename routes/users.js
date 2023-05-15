@@ -15,30 +15,32 @@ router.post("/signup", (req, res) => {
   }
 
   // Vérifie si l utilisateur est deja inscrit, s'il ne l'est pas, crée un nouvel utilisateur
-  User.findOne({ username: req.body.username }).then((data) => {
-    if (data === null) {
-      const hash = bcrypt.hashSync(req.body.password, 10);
+  User.findOne({ prenom: { $regex: new RegExp(req.body.prenom, "i") } }).then(
+    (data) => {
+      if (data === null) {
+        const hash = bcrypt.hashSync(req.body.password, 10);
 
-      const newUser = new User({
-        prenom: req.body.prenom,
-        email: req.body.email,
-        token: uid2(32),
-        password: hash,
-        avatar: "",
-        ville: "",
-        styles_musicaux: "",
-        tickets: [],
-        like: [],
-      });
+        const newUser = new User({
+          prenom: req.body.prenom,
+          email: req.body.email,
+          token: uid2(32),
+          password: hash,
+          avatar: "",
+          ville: "",
+          styles_musicaux: "",
+          tickets: [],
+          like: [],
+        });
 
-      newUser.save().then((newUser) => {
-        res.json({ result: true, token: newUser.token });
-      });
-    } else {
-      // L'utilisateur existe déja dans la BDD
-      res.json({ result: false, error: "User already exists" });
+        newUser.save().then((newUser) => {
+          res.json({ result: true, token: newUser.token });
+        });
+      } else {
+        // L'utilisateur existe déja dans la BDD
+        res.json({ result: false, error: "User already exists" });
+      }
     }
-  });
+  );
 });
 
 // Vérifie que les champs soient correctement remplies
@@ -48,14 +50,16 @@ router.post("/signin", (req, res) => {
     return;
   }
   // Vérifie si l'email et le mot de passe correspondent a des données dans la BDD
-  User.findOne({ email: req.body.email }).then((data) => {
-    if (data && bcrypt.compareSync(req.body.password, data.password)) {
-      res.json({ result: true, token: data.token, prenom: data.prenom });
-    } else {
-      // Soit l utilisateur n'existe pas, soit le mot de passe est faux, renvoie un message d erreur
-      res.json({ result: false, error: "User not found or wrong password" });
+  User.findOne({ email: { $regex: new RegExp(req.body.email, "i") } }).then(
+    (data) => {
+      if (data && bcrypt.compareSync(req.body.password, data.password)) {
+        res.json({ result: true, token: data.token, prenom: data.prenom });
+      } else {
+        // Soit l utilisateur n'existe pas, soit le mot de passe est faux, renvoie un message d erreur
+        res.json({ result: false, error: "User not found or wrong password" });
+      }
     }
-  });
+  );
 });
 
 router.get("/delete", (req, res) => {
