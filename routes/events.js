@@ -1,43 +1,70 @@
 var express = require("express");
 var router = express.Router();
-
+var moment = require("moment");
 require("../models/connections");
 const Event = require("../models/events");
 const { checkBody } = require("../modules/checkBody");
-const uid2 = require("uid2");
 
-// router.post("/addEvent", (req, res) => {
-//   // Vérifie que les champs soient correctement remplies
-//   if (!checkBody(req.body, ["pseudo", "email", "password"])) {
-//     res.json({ result: false, error: "Missing or empty fields" });
-//     return;
-//   }
+router.post("/addEvent", (req, res) => {
+  // Vérifie que les champs soient correctement remplies
+  if (
+    !checkBody(req.body, [
+      "name",
+      "lieu",
 
-//   // Vérifie si l utilisateur est deja inscrit, s'il ne l'est pas, crée un nouvel utilisateur
-//   Event.findOne({ name: { $regex: new RegExp(req.body.name, "i") } }).then(
-//     (data) => {
-//       if (data === null) {
-//         const newUser = new User({
-//           pseudo: req.body.pseudo,
-//           email: req.body.email,
-//           token: uid2(32),
-//           password: hash,
-//           avatar: "",
-//           ville: "",
-//           styles_musicaux: "",
-//           tickets: [],
-//           like: [],
-//         });
+      "photo",
+      "organisateur",
+      "tags",
+      "longitude",
+      "latitude",
+      "adresse",
+    ])
+  ) {
+    res.json({ result: false, error: "Missing or empty fields" });
+    return;
+  }
 
-//         newUser.save().then((newUser) => {
-//           res.json({ result: true, token: newUser.token });
-//         });
-//       } else {
-//         // L'utilisateur existe déja dans la BDD
-//         res.json({ result: false, error: "User already exists" });
-//       }
-//     }
-//   );
-// });
+  // Vérifie si l utilisateur est deja inscrit, s'il ne l'est pas, crée un nouvel utilisateur
+  Event.findOne({ name: { $regex: new RegExp(req.body.name, "i") } }).then(
+    (data) => {
+      if (data === null) {
+        const newEvent = new Event({
+          name: req.body.name,
+          lieu: req.body.lieu,
+          date_debut: moment().format(),
+          date_fin: moment().format(),
+          photo: req.body.photo,
+          organisateur: req.body.organisateur,
+          longitude: req.body.longitude,
+          latitude: req.body.latitude,
+          adresse: req.body.adresse,
+          tags: [req.body.tags],
+          tickets: [],
+        });
+
+        newEvent.save().then((newEvent) => {
+          res.json({ result: true, name: newEvent.name });
+        });
+      } else {
+        // L'utilisateur existe déja dans la BDD
+        res.json({ result: false, error: "Event already exists" });
+      }
+    }
+  );
+});
+
+router.get("/showEvent/:date_debut", (req, res) => {
+  Event.find({ date_debut: req.params.date_debut }).then((event) => {
+    if (event === null) {
+      res.json({
+        result: false,
+        error: "Il n'y a pas d'evenement à cette date",
+      });
+      return;
+    } else {
+      Event.find().then((data) => res.json({ result: true, tweet: data }));
+    }
+  });
+});
 
 module.exports = router;
