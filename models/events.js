@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const eventSchema = mongoose.Schema({
   name: String,
   lieu: String,
-  heure_debut: String,
-  heure_fin: String,
   date_debut: Date,
   date_fin: Date,
   photo: String,
