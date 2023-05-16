@@ -11,7 +11,6 @@ router.post("/addEvent", (req, res) => {
     !checkBody(req.body, [
       "name",
       "lieu",
-
       "photo",
       "organisateur",
       "tags",
@@ -31,8 +30,8 @@ router.post("/addEvent", (req, res) => {
         const newEvent = new Event({
           name: req.body.name,
           lieu: req.body.lieu,
-          date_debut: moment().format(),
-          date_fin: moment().format(),
+          date_debut: moment().toDate(req.body.date_debut),
+          date_fin: moment().toDate(req.body.date_fin),
           photo: req.body.photo,
           organisateur: req.body.organisateur,
           longitude: req.body.longitude,
@@ -62,7 +61,7 @@ router.get("/showEvent/:date_debut", (req, res) => {
       });
       return;
     } else {
-      Event.find().then((data) => res.json({ result: true, tweet: data }));
+      res.json({ result: true, event: event });
     }
   });
 });
