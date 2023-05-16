@@ -156,5 +156,57 @@
     "adresse": "5 Bd Poissonnière, 75002 Paris, France",
     "tags": ["Techno"],
     "tickets": []
+  },
+  {
+    "name": "PH4 INVITE MAISON SONORE",
+    "lieu": "Mélomane Club",
+    "date_debut": "ven 26 mai à 23:30",
+    "date_fin": "sam 27 mai à 06:00",
+    "photo": "./assets/events/ph4.png",
+    "organisateur": "Ph4_records",
+    "longitude": "3.8862392",
+    "latitude": "43.587731",
+    "adresse": "Rue du Lantissargues, 34000 Montpellier, France",
+    "tags": ["Techno", "Hard Music"],
+    "tickets": []
+  },
+  {
+    "name": "FLOWER POWER - DIEZE WAREHOUSE - GOTIS / OGWAX & MORE",
+    "lieu": "DIEZE WAREHOUSE",
+    "date_debut": "ven 26 mai à 23:59",
+    "date_fin": "sam 27 mai à 06:00",
+    "photo": "./assets/events/flowerpower.png",
+    "organisateur": "DIEZE WAREHOUSE",
+    "longitude": "3.8784961",
+    "latitude": "43.5856011",
+    "adresse": "188 Av. du Marché Gare, 34000 Montpellier, France",
+    "tags": ["Techno", "House"],
+    "tickets": []
+  },
+  {
+    "name": "NEWRAVE #6 | CLOSING EDITION",
+    "lieu": "DIEZE WAREHOUSE",
+    "date_debut": "ven 27 mai à 23:00",
+    "date_fin": "sam 28 mai à 07:00",
+    "photo": "./assets/events/newrave.png",
+    "organisateur": "Rave Events",
+    "longitude": "3.8784961",
+    "latitude": "43.5856011",
+    "adresse": "188 Av. du Marché Gare, 34000 Montpellier, France",
+    "tags": ["Techno", "Hard Music"],
+    "tickets": []
+  },
+  {
+    "name": "MADAME LOYAL MONTPELLIER : POLO & PAN, JORIS DELACROIX ...",
+    "lieu": "DIEZE WAREHOUSE",
+    "date_debut": "sam 3 juin à 13:00",
+    "date_fin": "sam 3 juin à 23:59",
+    "photo": "./assets/events/madameloyal.png",
+    "organisateur": "MADAME LOYAL",
+    "longitude": "3.8772",
+    "latitude": "43.6109",
+    "adresse": "Rastouble, 34000 Montpellier, France",
+    "tags": ["Techno", "House"],
+    "tickets": []
   }
 ]
