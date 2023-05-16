@@ -1,10 +1,9 @@
 var express = require("express");
 var router = express.Router();
-
+var moment = require("moment");
 require("../models/connections");
 const Event = require("../models/events");
 const { checkBody } = require("../modules/checkBody");
-const uid2 = require("uid2");
 
 router.post("/addEvent", (req, res) => {
   // Vérifie que les champs soient correctement remplies
@@ -12,11 +11,13 @@ router.post("/addEvent", (req, res) => {
     !checkBody(req.body, [
       "name",
       "lieu",
-      "date_debut",
-      "date_fin",
+
       "photo",
       "organisateur",
       "tags",
+      "longitude",
+      "latitude",
+      "adresse",
     ])
   ) {
     res.json({ result: false, error: "Missing or empty fields" });
@@ -29,20 +30,20 @@ router.post("/addEvent", (req, res) => {
       if (data === null) {
         const newEvent = new Event({
           name: req.body.name,
-          token: uid2(32),
           lieu: req.body.lieu,
-          date_debut: req.body.date_debut,
-          date_fin: req.body.date_fin,
+          date_debut: moment().format(),
+          date_fin: moment().format(),
           photo: req.body.photo,
           organisateur: req.body.organisateur,
-          Longitude: "",
-          Latitude: "",
+          longitude: req.body.longitude,
+          latitude: req.body.latitude,
+          adresse: req.body.adresse,
           tags: [req.body.tags],
           tickets: [],
         });
 
         newEvent.save().then((newEvent) => {
-          res.json({ result: true, token: newEvent.token });
+          res.json({ result: true, name: newEvent.name });
         });
       } else {
         // L'utilisateur existe déja dans la BDD
@@ -50,6 +51,20 @@ router.post("/addEvent", (req, res) => {
       }
     }
   );
+});
+
+router.get("/showEvent/:date_debut", (req, res) => {
+  Event.find({ date_debut: req.params.date_debut }).then((event) => {
+    if (event === null) {
+      res.json({
+        result: false,
+        error: "Il n'y a pas d'evenement à cette date",
+      });
+      return;
+    } else {
+      Event.find().then((data) => res.json({ result: true, tweet: data }));
+    }
+  });
 });
 
 module.exports = router;

@@ -2,14 +2,16 @@ const mongoose = require("mongoose");
 
 const eventSchema = mongoose.Schema({
   name: String,
-  token: String,
   lieu: String,
-  date_debut: String,
-  date_fin: String,
+  heure_debut: String,
+  heure_fin: String,
+  date_debut: Date,
+  date_fin: Date,
   photo: String,
   organisateur: String,
-  Longitude: Number,
-  Latitude: Number,
+  longitude: Number,
+  latitude: Number,
+  adresse: String,
   tags: [String],
   tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
 });
