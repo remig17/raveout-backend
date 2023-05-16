@@ -80,4 +80,5 @@ router.get("/showAllEvent", (req, res) => {
     res.json({ event: event });
   });
 });
+
 module.exports = router;
