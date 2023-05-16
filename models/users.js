@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
-  prenom: String,
+  pseudo: String,
   email: String,
   token: String,
   password: String,
   avatar: String,
   ville: String,
-  styles_musicaux: [String],
+  tags: [String],
   tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
   like: [{ type: mongoose.Schema.Types.ObjectId, ref: "events" }],
 });
