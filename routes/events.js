@@ -1,8 +1,11 @@
 var express = require("express");
 var router = express.Router();
+
 var moment = require("moment");
 require("../models/connections");
+
 const Event = require("../models/events");
+
 const { checkBody } = require("../modules/checkBody");
 
 router.post("/addEvent", (req, res) => {
@@ -52,18 +55,29 @@ router.post("/addEvent", (req, res) => {
   );
 });
 
-router.get("/showEvent/:date_debut", (req, res) => {
-  Event.find({ date_debut: req.params.date_debut }).then((event) => {
-    if (event === null) {
+router.get("/showEventByDate/:date_debut/:date_fin", (req, res) => {
+  const { date_debut, date_fin } = req.params;
+
+  Event.find({
+    date_debut: {
+      $gte: moment(date_debut).startOf("date"),
+      $lte: moment(date_fin).endOf("date"),
+    },
+  }).then((event) => {
+    if (event.length > 0) {
+      res.json({ result: true, event: event });
+    } else {
       res.json({
         result: false,
         error: "Il n'y a pas d'evenement à cette date",
       });
-      return;
-    } else {
-      res.json({ result: true, event: event });
     }
   });
 });
 
+router.get("/showAllEvent", (req, res) => {
+  Event.find().then((event) => {
+    res.json({ event: event });
+  });
+});
 module.exports = router;
