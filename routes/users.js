@@ -2,7 +2,10 @@ var express = require("express");
 var router = express.Router();
 
 require("../models/connections");
+
 const User = require("../models/users");
+const Event = require("../models/events");
+
 const { checkBody } = require("../modules/checkBody");
 const uid2 = require("uid2");
 const bcrypt = require("bcrypt");
@@ -93,6 +96,42 @@ router.put("/avatarUpdate", (req, res) => {
     { $set: { avatar: req.body.avatar } }
   ).then((data) => {
     res.json({ result: true, data: data });
+  });
+});
+
+router.put("/like", (req, res) => {
+  if (!checkBody(req.body, ["token", "eventId"])) {
+    res.json({ result: false, error: "Missing or empty fields" });
+    return;
+  }
+
+  User.findOne({ token: req.body.token }).then((user) => {
+    if (user === null) {
+      res.json({ result: false, error: "User not found" });
+      return;
+    }
+
+    Event.findById(req.body.eventId).then((event) => {
+      console.log(event);
+      if (event === null) {
+        res.json({ result: false, error: "Event not found" });
+        return;
+      }
+
+      if (user.like.includes(event._id)) {
+        // User already liked the Event
+        User.updateOne({ _id: user._id }, { $pull: { like: event._id } }) // Remove event ID from likes
+          .then(() => {
+            res.json({ result: true });
+          });
+      } else {
+        // User has not liked the Event
+        User.updateOne({ _id: user._id }, { $push: { like: event._id } }) // Add event ID to likes
+          .then(() => {
+            res.json({ result: true });
+          });
+      }
+    });
   });
 });
 
