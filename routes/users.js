@@ -87,6 +87,8 @@ router.put("/musicUpdate", (req, res) => {
   });
 });
 
+
+
 //Cette route permet de modifier la photo de profile de l'utilisateur via son token
 router.put("/avatarUpdate", (req, res) => {
   User.updateOne(
