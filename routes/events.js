@@ -81,4 +81,16 @@ router.get("/showAllEvent", (req, res) => {
   });
 });
 
+router.get("/showEventById/:eventId", (req, res) => {
+  Event.findById(req.params.eventId).then((event) => {
+    console.log(event);
+    if (event === null) {
+      res.json({ result: false, error: "Event not found" });
+      return;
+    } else {
+      res.json({ result: true, event: event });
+    }
+  });
+});
+
 module.exports = router;
