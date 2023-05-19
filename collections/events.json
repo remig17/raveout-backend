@@ -34,8 +34,8 @@
     "date_fin": { "$date": "2023-06-03T05:30:00Z" },
     "photo": "https://i.ibb.co/wS89YWz/minuitrapide.png",
     "organisateur": "Minuit Rapide",
-    "longitude": "",
-    "latitude": "",
+    "longitude": 5.3625,
+    "latitude": 43.2963,
     "adresse": "",
     "tags": ["Techno", "Trance", "Breakbeat"],
     "tickets": []
