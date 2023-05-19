@@ -87,8 +87,6 @@ router.put("/musicUpdate", (req, res) => {
   });
 });
 
-
-
 //Cette route permet de modifier la photo de profile de l'utilisateur via son token
 router.put("/avatarUpdate", (req, res) => {
   User.updateOne(
@@ -122,7 +120,7 @@ router.put("/like", (req, res) => {
         // User already liked the Event
         User.updateOne({ _id: user._id }, { $pull: { like: event._id } }) // Remove event ID from likes
           .then(() => {
-            res.json({ result: true });
+            res.json({ result: false });
           });
       } else {
         // User has not liked the Event
@@ -145,6 +143,14 @@ router.get("/showLike/:token", (req, res) => {
         res.json({ result: false, error: "No liked events found" });
       }
     });
+});
+
+router.get("/userdata/:token", (req, res) => {
+  User.findOne({ token: { $regex: new RegExp(req.params.token, "i") } }).then(
+    (data) => {
+      res.json({ result: true, user: data });
+    }
+  );
 });
 
 router.get("/delete", (req, res) => {
