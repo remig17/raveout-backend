@@ -145,6 +145,14 @@ router.get("/showLike/:token", (req, res) => {
     });
 });
 
+router.get("/userdata/:token", (req, res) => {
+  User.findOne({ token: { $regex: new RegExp(req.params.token, "i") } }).then(
+    (data) => {
+      res.json({ result: true, user: data });
+    }
+  );
+});
+
 router.get("/delete", (req, res) => {
   User.deleteMany().then(() => console.log("database clear"));
 });

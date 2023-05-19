@@ -36,6 +36,7 @@ router.post("/addEvent", (req, res) => {
           date_debut: moment().toDate(req.body.date_debut),
           date_fin: moment().toDate(req.body.date_fin),
           photo: req.body.photo,
+          description: req.body.description,
           organisateur: req.body.organisateur,
           longitude: req.body.longitude,
           latitude: req.body.latitude,

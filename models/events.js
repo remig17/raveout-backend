@@ -6,6 +6,7 @@ const eventSchema = mongoose.Schema({
   date_debut: Date,
   date_fin: Date,
   photo: String,
+  description: String,
   organisateur: String,
   longitude: Number,
   latitude: Number,

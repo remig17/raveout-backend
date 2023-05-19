@@ -10,7 +10,8 @@
     "latitude": 43.31033,
     "adresse": "41 Rue Jobin, 13003 Marseille, France",
     "tags": ["Techno", "Bass Music", "House"],
-    "tickets": []
+    "tickets": [],
+    "description": "Le Festival Le Bon Air viendra éveiller l’aube de l’été - tel un rituel, la veille d’un lundi férié - du 26 au 28 mai 2023 pour trois nuits & deux jours en pleine Friche la Belle de Mai. Une seule boussole pour nous guider : cap sur les dancefloors, avec une envie trépidante de vous retrouver, prendre soin des moindres recoins, créer, explorer et affirmer encore plus fort. Douce, lumineuse et ancrée dans son temps, cette huitième édition est pensée avec le cœur de ses Artistes. Avec, à la tête de son comité de programmation, trois ambassadrices engagées : Goldie B, Lisa More & TTristana sont bien décidées à fêter, surprendre, résonner et vous faire danser aux côtés de plus de 50 Artistes."
   },
 
   {
@@ -24,7 +25,8 @@
     "latitude": 43.314921,
     "adresse": "38 Trav. Notre Dame du Bon Secours, 13003 Marseille, France",
     "tags": ["Techno", "Hard Music", "House"],
-    "tickets": []
+    "tickets": [],
+    "description": "🔊BIM BAM BOOM on est de retour !🔊 SUNRAVE revient sur Marseille en grande pompe, et c'est au Chapiteau qu'on va vous proposer notre prochaine clownerie ! Une belle soirée de funambulisme entre la House et la Tribe, en passant par de jolis sets Techno et Hard Techno saupoudré d'un peu d'Acid Live et d'un mapping au petit oignons rien que pour vos beaux yeux."
   },
 
   {
@@ -38,7 +40,8 @@
     "latitude": 43.2963,
     "adresse": "",
     "tags": ["Techno", "Trance", "Breakbeat"],
-    "tickets": []
+    "tickets": [],
+    "description": " ◊ INFOS: - Lieu à 2min d'un arrêt de métro (adresse dévoilée aux détenteur.euse.s de billets le Jour-J) -L'adhésion à l'association est comprise dans le prix du billet - LGBTQIA+ friendly - Toute discrimination ou comportement inapproprié entraînera une exclusion immédiate - Nous nous réservons le droit d'entrée, pour la sécurité et bienséance de l'évènement"
   },
   {
     "name": "ACONTRALUZ FESTIVAL 2023",
@@ -51,7 +54,8 @@
     "latitude": 43.2963,
     "adresse": "Esp. J4, 13002 Marseille, France",
     "tags": ["Techno"],
-    "tickets": []
+    "tickets": [],
+    "description": "Comment mieux commencer l'été qu'avec un festival de musique électronique ? Acontraluz te donne rendez-vous pour sa neuvième édition les 30 juin et 1er juillet 2023 sur l'esplanade du J4 à Marseille. Tiens toi prêt, cette année encore la programmation va être des plus remarquable : VENDREDI 30 JUIN Fideles Mathame Mind Against Overmono Sasson SAMEDI 1ER JUILLET Adriatique Anfisa Letyago Dubfire Joseph Capriati Meloko NTO … et d'autres talents seront présents pour te faire passer une soirée inoubliable !"
   },
   {
     "name": "CARTE BLANCHE - BEATITUDE",
@@ -64,7 +68,8 @@
     "latitude": 43.314921,
     "adresse": "38 Trav. Notre Dame du Bon Secours, 13003 Marseille, France",
     "tags": ["Techno", "House", "Breakbeat"],
-    "tickets": []
+    "tickets": [],
+    "description": "Pour cette nouvelle Carte Blanche, place au collectif marseillais Electronic Meeting qui va vous embarquer pour un voyage 360º au coeur des sonorités mélodiques et progressives de la techno. Originaire de Marseille, Electronic Meeting est un duo composé d’Eve Dahan et L’Atomiste. Projet où les univers de chacun.e se mélangent pendant un back to back sans limite. Inclassables, leurs prestations sont à chaque fois un voyage vers de nouveaux horizons musicaux. Attachez vos ceintures, car avec Eve Dahan, L'Atomiste et leurs guests Scan X et Shaun Moses, le périple promet d'être plein de turbulences 100 % improvisation, partage, groove et énergie !🚨"
   },
   {
     "name": "HOUSE AT BABY - REUSBI + VAARNISH + MOB",
@@ -77,7 +82,8 @@
     "latitude": 43.2935475,
     "adresse": "2 Rue André Poggioli, 13006 Marseille, France",
     "tags": ["Techno", "House"],
-    "tickets": []
+    "tickets": [],
+    "description": ""
   },
   {
     "name": "BASS PARADIZE X INNAMIND RECORDINGS W/ KARMA, TRACES & MORE",
@@ -90,7 +96,8 @@
     "latitude": 48.892,
     "adresse": "93 Cr Nicole Dreyfus, 92000 Nanterre, France",
     "tags": [],
-    "tickets": []
+    "tickets": [],
+    "description": "SOUND SYSTEM CULTURE ◇ UK BASS MUSIC ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ Rendez-vous le 10 juin à la Bassecour pour cette seconde date de l'année et pas des moindres pour l'un des labels les plus emblématiques de la scène UK Dubstep : Innamind Recordings ! Comme toujours, la recette reste la même : 2 salles, 2 soundsystems. C'est avec grand plaisir que nous retrouverons le Rhizome Soundsystem dans la première salle. Geisa sa tête pensante et résident de nos soirées aux commandes. Le duo Traces accompagné de MC Tysc pour leur première date en France ainsi que Karma représenteront le label Innamind Recordings, pierre angulaire du Dubstep anglais depuis plus d'une décennie. Tinky et Beatrice acteur.ices respectivement de la scène locale parisienne et strasbourgeoise se joindront au line-up prêts à en découdre. Dans la seconde salle, le TaBass Soundsystem sera à la manœuvre. Raxx, Soolek et Killy se chargeront des hostilités comme ils savent bien le faire, avec en guest les 2-steppers : UK garage à l'honneur !"
   },
   {
     "name": "CHEZ GLORY X RESURRECTION",
@@ -103,7 +110,8 @@
     "latitude": 48.8412,
     "adresse": "Orée du Bois de Vincennes, Avenue de Bel Air, 75012 Paris, France",
     "tags": ["Techno"],
-    "tickets": []
+    "tickets": [],
+    "description": "Nouvel saison pour Chez Glory, la résidence d'été du LIEBE, on prend les mêmes et on recommence : 2 salles, 1 véranda pour chiller, un grand jardin pour s'aérer, des lines up aux petits oignons, un son bien calibré et son immense boule à facette de 3 tonnes ! On invite pour cette 2ème édition de mai nos amis de chez 𝕽𝖊𝖘𝖚𝖗𝖗𝖊𝖈𝖙𝖎𝖔𝖓 : 2 scènes - 10h de sons - line up européen - 12 djs - espace child extérieur et intérieur"
   },
   {
     "name": "ORGANÏK X NEXUS : CHIPPY NONSTOP, DJ YARAK, AND MORE",
@@ -116,7 +124,8 @@
     "latitude": 48.8975099,
     "adresse": "100 Av. du Général Leclerc, 93500 Pantin, France",
     "tags": ["Techno"],
-    "tickets": []
+    "tickets": [],
+    "description": "Grand retour d'Organïk au Nexus Club pour faire à nouveau trembler les murs ce 26 mai. Cette fois-ci, nous vous proposons un line up un peu différent, des artistes pointus ainsi que Chippy nonstop pour la première fois sur notre stage. 🐍 Nous accorderons beaucoup d'importances au show light ainsi qu'à la scénographie, une ambiance dark de warehouse sera recréé afin de vous proposer une expérience inédite dans ce club."
   },
   {
     "name": "VIRAGE PRÉSENTE | DJ GIGOLA, DR. RUBINSTEIN, TOSCAN HAAS",
@@ -129,7 +138,8 @@
     "latitude": 48.9004188,
     "adresse": "26 Rue Hélène et François Missoffe, 75017 Paris, France",
     "tags": ["Techno", "Trance"],
-    "tickets": []
+    "tickets": [],
+    "description": "Deux icônes des nuits berlinoises partageront l'affiche du 26 mai avec deux étoiles montantes de la scène hexagonale. D'un côté DJ Gigola, porte-étendard du label et collectif Live From Earth, et Dr. Rubinstein, DJ emblématique et mondialement connue originaire de Tel Aviv. De l'autre Toscan Haas, incontournable résident des soirées Spectrum et Bambi, une des figures francophones les plus prometteuses. <3"
   },
   {
     "name": "PIECES X KM25 PRESENTS : APOLLONIA & ASTRAL TRAVEL",
@@ -142,7 +152,8 @@
     "latitude": 48.8971181,
     "adresse": "8 Bd Macdonald, 75019 Paris, France",
     "tags": ["House"],
-    "tickets": []
+    "tickets": [],
+    "description": "🎏 KILOMÈTRE25, LIEU DE VIE DES CULTURES PÉRIPHÉRIQUES. 🎏 Lieu de vie de 2 200 m2 sous le périphérique, le Kilomètre25 accompagne et valorise les expressions artistiques émergentes et les porteurs de projets engagés. La nuit, cet open air devient un espace de libre expression pour les musiques électroniques. Ouvert du jeudi au dimanche à partir du 05.05.23, jusqu’à la fin de l'été, dans le 19ème arrondissement de Paris."
   },
   {
     "name": "SOEURS MALSAINES CÉLÈBRE PETITES LÈVRES",
@@ -155,7 +166,8 @@
     "latitude": 48.8706315,
     "adresse": "5 Bd Poissonnière, 75002 Paris, France",
     "tags": ["Techno"],
-    "tickets": []
+    "tickets": [],
+    "description": "*𝐏𝐞𝐭𝐢𝐭𝐞𝐬 𝐋𝐞𝐯𝐫𝐞𝐬* ou nymphes sont deux replis de peau charnue qui ouvrent la vulve, mais pour nous, *𝐏𝐞𝐭𝐢𝐭𝐞𝐬 𝐋𝐞𝐯𝐫𝐞𝐬* représente une partie du corps qu’on a recouvert de tabous, caché et humilié. Ce faisant, elle est portée par des personnes oppressées et rabaissées au rang de minorité, qui ont dû lutter pour se l’approprier et pour se libérer de la passivité dans laquelle on les enfermait. Cependant, *𝐏𝐞𝐭𝐢𝐭𝐞𝐬 𝐋𝐞𝐯𝐫𝐞𝐬* c'est aussi un manifeste pour toutes celleux qui veulent retourner la perspective, inverser le rapport de passivité et d'activité - tout comme la circlusion est une manière de reconquérir la pénétration dans les rapports sexuels. Nous ne voulons plus être dominé.es, mais devenir maîtres.ses de notre corps, de nos choix et de nos destins. C'est pourquoi 𝐒𝐨𝐞𝐮𝐫𝐬 𝐌𝐚𝐥𝐬𝐚𝐢𝐧𝐞𝐬 ouvre doucement, mais sûrement le nouveau monde avec *𝐏𝐞𝐭𝐢𝐭𝐞𝐬 𝐋𝐞𝐯𝐫𝐞𝐬* et laisse entrevoir un aperçu de ce que pourrait être ce monde d’after, où chaque personne, quelle que soit l’identité dans laquelle elle se reconnaît, ne subisse plus le poids des préjugés, ce monde tant attendu et qui se construit tous les jours un peu plus."
   },
   {
     "name": "PH4 INVITE MAISON SONORE",
@@ -168,7 +180,8 @@
     "latitude": 43.587731,
     "adresse": "Rue du Lantissargues, 34000 Montpellier, France",
     "tags": ["Techno", "Hard Music"],
-    "tickets": []
+    "tickets": [],
+    "description": " Le collectif PH4 débarque au MELOMANE CLUB sur Montpellier. Rendez-vous vendredi 26 mai de 23h30 à 6h. Pas d’échappatoire possible😈"
   },
   {
     "name": "FLOWER POWER - DIEZE WAREHOUSE - GOTIS / OGWAX & MORE",
@@ -181,7 +194,8 @@
     "latitude": 43.5856011,
     "adresse": "188 Av. du Marché Gare, 34000 Montpellier, France",
     "tags": ["Techno", "House"],
-    "tickets": []
+    "tickets": [],
+    "description": "Plus besoin de vous annoncer la couleur, les soirées Flower Power, c'est bonne vibes, collier à fleurs, musique dansante et bons moments entre amis 🌻🌼🌸 Ça tombe bien, on vous en organise une le 26 mai prochain au Dieze Warehouse. Au programme : Du guest local, un canon à confettis, des danseuses et une distribution de goodies.Ready ? 🌞🕺🏻"
   },
   {
     "name": "NEWRAVE #6 | CLOSING EDITION",
@@ -194,7 +208,8 @@
     "latitude": 43.5856011,
     "adresse": "188 Av. du Marché Gare, 34000 Montpellier, France",
     "tags": ["Techno", "Hard Music"],
-    "tickets": []
+    "tickets": [],
+    "description": "BIGGER AND BETTER ! On est de retour pour la 6ème NEWRAVE de la saison pour un gros closing avec 8H de son dans la grande salle du Dieze ! · Durdenhauer · Nure · Rubio · Uphoria B2B Emma Ollivary · Rave Crew WE ARE THE NEW RAVE GENERATION Techno / Rave / Hard-Techno / Acid / Hard-Music / Newtrance / Eurodance Les soirées NEWRAVE sont signe de liberté et d'inclusion, toute personne ayant un comportement déplacé ou oppressant sera exclu. Compris les relous ? On est là pour s'éclater ! Toutes les tenues sont acceptées. 12€ en pré-vente / 18€ sur place"
   },
   {
     "name": "MADAME LOYAL MONTPELLIER : POLO & PAN, JORIS DELACROIX ...",
@@ -207,6 +222,7 @@
     "latitude": 43.6109,
     "adresse": "Rastouble, 34000 Montpellier, France",
     "tags": ["Techno", "House"],
-    "tickets": []
+    "tickets": [],
+    "description": "🥁 LA FABULEUSE FANFARE DE MME LOYAL (scènes couvertes) Polo & Pan (dj set) Joris Delacroix Joachim Pastor Camille Doe Durdenhauer DJ Football Regroup Enzo M Strictly Idris Ocio Janaux Brick City"
   }
 ]
