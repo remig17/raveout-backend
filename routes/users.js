@@ -30,6 +30,7 @@ router.post("/signup", (req, res) => {
           password: hash,
           avatar: "",
           ville: "",
+          description: "",
           tags: [],
           tickets: [],
           like: [],
@@ -89,6 +90,33 @@ router.put("/musicUpdate", (req, res) => {
 
 //Cette route permet de modifier la photo de profile de l'utilisateur via son token
 router.put("/avatarUpdate", (req, res) => {
+  User.updateOne(
+    { token: req.body.token },
+    { $set: { avatar: req.body.avatar } }
+  ).then((data) => {
+    res.json({ result: true, data: data });
+  });
+});
+
+router.put("pseudoUpdate", (req, res) => {
+  User.updateOne(
+    { token: req.body.token },
+    { $set: { pseudo: req.body.pseudo } }
+  ).then((data) => {
+    res.json({ result: true, data: data });
+  });
+});
+
+router.put("/descriptionUpdate", (req, res) => {
+  User.updateOne(
+    { token: req.body.token },
+    { $set: { description: req.body.description } }
+  ).then((data) => {
+    res.json({ result: true, data: data });
+  });
+});
+
+router.put("/emailUpdate", (req, res) => {
   User.updateOne(
     { token: req.body.token },
     { $set: { avatar: req.body.avatar } }
