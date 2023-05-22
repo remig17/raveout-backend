@@ -98,28 +98,28 @@ router.put("/avatarUpdate", (req, res) => {
   });
 });
 
-router.put("pseudoUpdate", (req, res) => {
+router.put("/modifyProfile", (req, res) => {
   User.updateOne(
     { token: req.body.token },
-    { $set: { pseudo: req.body.pseudo } }
+    {
+      $set: { pseudo: req.body.pseudo },
+    }
   ).then((data) => {
     res.json({ result: true, data: data });
   });
-});
-
-router.put("/descriptionUpdate", (req, res) => {
   User.updateOne(
     { token: req.body.token },
-    { $set: { description: req.body.description } }
+    {
+      $set: { email: req.body.email },
+    }
   ).then((data) => {
     res.json({ result: true, data: data });
   });
-});
-
-router.put("/emailUpdate", (req, res) => {
   User.updateOne(
     { token: req.body.token },
-    { $set: { avatar: req.body.avatar } }
+    {
+      $set: { description: req.body.description },
+    }
   ).then((data) => {
     res.json({ result: true, data: data });
   });
