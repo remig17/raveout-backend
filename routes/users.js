@@ -32,7 +32,8 @@ router.post("/signup", (req, res) => {
           email: req.body.email,
           token: uid2(32),
           password: hash,
-          avatar: "",
+          avatar:
+            "https://img.freepik.com/icones-gratuites/utilisateur_318-159711.jpg",
           ville: "",
           description: "",
           tags: [],
@@ -41,7 +42,11 @@ router.post("/signup", (req, res) => {
         });
 
         newUser.save().then((newUser) => {
-          res.json({ result: true, token: newUser.token });
+          res.json({
+            result: true,
+            token: newUser.token,
+            avatar: newUser.avatar,
+          });
         });
       } else {
         // L'utilisateur existe déja dans la BDD
@@ -110,6 +115,7 @@ router.post("/avatarUpdate", async (req, res) => {
   if (!resultMove) {
     const resultCloudinary = await cloudinary.uploader.upload(photoPath2);
     res.json({ result: true, url: resultCloudinary.secure_url });
+    console.log(resultCloudinary.secure_url);
   } else {
     res.json({ result: false, error: resultMove });
   }
@@ -171,7 +177,7 @@ router.get("/showLike/:token", (req, res) => {
   User.findOne({ token: { $regex: new RegExp(req.params.token, "i") } })
     .populate("like")
     .then((like) => {
-      console.log("like",like)
+      console.log("like", like);
       if (like.like.length > 0) {
         res.json({ result: true, like: like.like });
       } else {
