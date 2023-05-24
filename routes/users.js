@@ -103,17 +103,17 @@ router.put("/musicUpdate", (req, res) => {
 // });
 
 router.post("/avatarUpdate", async (req, res) => {
-  const photoPath = `./tmp/${uniqid()}.jpg`;
-  const resultMove = await req.files.avatarImage.mv(photoPath);
-  console.log("req.file.avatarImage", req.file.avatarImage);
+  const photoPath2 = `./tmp/${uniqid()}.jpg`;
+  const resultMove = await req.files.avatarImage.mv(photoPath2);
+  console.log("req.file.avatarImage", req.files.avatarImage);
   console.log("result move", resultMove);
   if (!resultMove) {
-    const resultCloudinary = await cloudinary.uploader.upload(photoPath);
-    fs.unlinkSync(photoPath);
+    const resultCloudinary = await cloudinary.uploader.upload(photoPath2);
     res.json({ result: true, url: resultCloudinary.secure_url });
   } else {
     res.json({ result: false, error: resultMove });
   }
+  fs.unlinkSync(photoPath2);
 });
 
 router.put("/modifyProfile", (req, res) => {
