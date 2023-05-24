@@ -32,8 +32,7 @@ router.post("/signup", (req, res) => {
           email: req.body.email,
           token: uid2(32),
           password: hash,
-          avatar:
-            "https://img.freepik.com/icones-gratuites/utilisateur_318-159711.jpg",
+          avatar: "",
           ville: "",
           description: "",
           tags: [],
