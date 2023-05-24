@@ -10,6 +10,10 @@ const { checkBody } = require("../modules/checkBody");
 const uid2 = require("uid2");
 const bcrypt = require("bcrypt");
 
+const cloudinary = require("cloudinary").v2;
+const uniqid = require("uniqid");
+const fs = require("fs");
+
 router.post("/signup", (req, res) => {
   // Vérifie que les champs soient correctement remplies
   if (!checkBody(req.body, ["pseudo", "email", "password"])) {
@@ -30,6 +34,7 @@ router.post("/signup", (req, res) => {
           password: hash,
           avatar: "",
           ville: "",
+          description: "",
           tags: [],
           tickets: [],
           like: [],
@@ -87,11 +92,40 @@ router.put("/musicUpdate", (req, res) => {
   });
 });
 
-//Cette route permet de modifier la photo de profile de l'utilisateur via son token
-router.put("/avatarUpdate", (req, res) => {
+//Cette route permet de modifier la photo de profil de l'utilisateur via son token
+// router.put("/avatarUpdate", (req, res) => {
+//   User.updateOne(
+//     { token: req.body.token },
+//     { $set: { avatar: req.body.avatar } }
+//   ).then((data) => {
+//     res.json({ result: true, data: data });
+//   });
+// });
+
+router.post("/avatarUpdate", async (req, res) => {
+  const photoPath2 = `./tmp/${uniqid()}.jpg`;
+  const resultMove = await req.files.avatarImage.mv(photoPath2);
+  console.log("req.file.avatarImage", req.files.avatarImage);
+  console.log("result move", resultMove);
+  if (!resultMove) {
+    const resultCloudinary = await cloudinary.uploader.upload(photoPath2);
+    res.json({ result: true, url: resultCloudinary.secure_url });
+  } else {
+    res.json({ result: false, error: resultMove });
+  }
+  fs.unlinkSync(photoPath2);
+});
+
+router.put("/modifyProfile", (req, res) => {
   User.updateOne(
     { token: req.body.token },
-    { $set: { avatar: req.body.avatar } }
+    {
+      $set: {
+        pseudo: req.body.pseudo,
+        description: req.body.description,
+        email: req.body.email,
+      },
+    }
   ).then((data) => {
     res.json({ result: true, data: data });
   });
