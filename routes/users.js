@@ -137,6 +137,7 @@ router.get("/showLike/:token", (req, res) => {
   User.findOne({ token: { $regex: new RegExp(req.params.token, "i") } })
     .populate("like")
     .then((like) => {
+      console.log("like",like)
       if (like.like.length > 0) {
         res.json({ result: true, like: like.like });
       } else {

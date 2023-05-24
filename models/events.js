@@ -13,6 +13,7 @@ const eventSchema = mongoose.Schema({
   adresse: String,
   tags: [String],
   tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
+  isliked: Boolean,
 });
 
 const Event = mongoose.model("events", eventSchema);
