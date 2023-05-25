@@ -12,7 +12,8 @@ const eventSchema = mongoose.Schema({
   latitude: Number,
   adresse: String,
   tags: [String],
-  tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
+  // tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
+  tickets: [String],
   isliked: Boolean,
 });
 

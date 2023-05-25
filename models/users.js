@@ -9,7 +9,8 @@ const userSchema = mongoose.Schema({
   ville: String,
   description: String,
   tags: [String],
-  tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
+  // tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "tickets" }],
+  tickets: [String],
   like: [{ type: mongoose.Schema.Types.ObjectId, ref: "events" }],
 });
 
