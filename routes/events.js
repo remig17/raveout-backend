@@ -9,7 +9,7 @@ const Event = require("../models/events");
 const { checkBody } = require("../modules/checkBody");
 
 router.post("/addEvent", (req, res) => {
-  // Vérifie que les champs soient correctement remplies
+  // J'ai utilisé le module checkbody importé depuis le dossier 'modules' pour vérifier que tous les champs soient bien remplis
   if (
     !checkBody(req.body, [
       "name",
@@ -26,7 +26,8 @@ router.post("/addEvent", (req, res) => {
     return;
   }
 
-  // Vérifie si l utilisateur est deja inscrit, s'il ne l'est pas, crée un nouvel utilisateur
+  // Nous utilisons un findOne pour nous arreter au premier 'name' correspondant, la regex nous permet de ne pas tenir compte des 
+  // différentes majuscules et minuscules
   Event.findOne({ name: { $regex: new RegExp(req.body.name, "i") } }).then(
     (data) => {
       if (data === null) {
@@ -56,6 +57,8 @@ router.post("/addEvent", (req, res) => {
   );
 });
 
+// J'ai utilisé des methodes mongoose pour gérer le blocage de recherche au debut 
+//de la journée de 'date_debut' avec $gte et au debut de journée de 'date_fin' avec $lte
 router.get("/showEventByDate/:date_debut/:date_fin", (req, res) => {
   const { date_debut, date_fin } = req.params;
 

@@ -15,13 +15,16 @@ const uniqid = require("uniqid");
 const fs = require("fs");
 
 router.post("/signup", (req, res) => {
-  // Vérifie que les champs soient correctement remplies
+  // J'ai utilisé le module checkbody importé depuis le dossier 'modules' pour vérifier que tous les champs soient bien remplies
   if (!checkBody(req.body, ["pseudo", "email", "password"])) {
     res.json({ result: false, error: "Missing or empty fields" });
     return;
   }
 
-  // Vérifie si l utilisateur est deja inscrit, s'il ne l'est pas, crée un nouvel utilisateur
+   // J ai utilisé un findOne pour nous arreter au premier 'pseudo' correspondant, 
+   //la regex nous permet de ne pas tenir compte des 
+  // différentes majuscules et minuscules, j ai utilisé le module uid2 pour créer un token 
+  //ainsi que le module bcrypt avec 32 iterations et sécuriser l'authentification
   User.findOne({ pseudo: { $regex: new RegExp(req.body.pseudo, "i") } }).then(
     (data) => {
       if (data === null) {
@@ -55,8 +58,11 @@ router.post("/signup", (req, res) => {
   );
 });
 
-// Vérifie que les champs soient correctement remplies
+// Nous utilisons ici une route post pour le signin car il envoie une demande au serveur,
+//et si les infos envoyaient sont bonnes, le serveur les renvoie et le connecte
 router.post("/signin", (req, res) => {
+  // J'ai utilisé le module checkbody importé depuis le dossier 'modules'
+  // pour vérifier que tous les champs soient bien remplies
   if (!checkBody(req.body, ["email", "password"])) {
     res.json({ result: false, error: "Missing or empty fields" });
     return;
@@ -74,7 +80,9 @@ router.post("/signin", (req, res) => {
   );
 });
 
-//Cette route permet de mettre à jour la ville via le token du user qui n'était pas encore ajoutée lors de la création du compte
+//Cette route permet de mettre à jour la ville via le token du user, 
+//en utilisant un put pour créer OU remplacer
+// $set est une methode MongoDB qui permet de REMPLACER des données
 
 router.put("/cityUpdate", (req, res) => {
   User.updateOne(
@@ -85,7 +93,9 @@ router.put("/cityUpdate", (req, res) => {
   });
 });
 
-//Cette route permet de mettre à jour les musiques favorites de l'utilise via son token qui n'était pas encore ajouté lors de la création du compte
+//Cette route permet de mettre à jour les musiques favorites de l'utilise via son token 
+//en utilisant un put pour créer OU remplacer
+// $push est une methode MongoDB qui permet de AJOUTER des données
 
 router.put("/musicUpdate", (req, res) => {
   User.updateOne(
@@ -122,6 +132,9 @@ router.post("/avatarUpdate", async (req, res) => {
   fs.unlinkSync(photoPath2);
 });
 
+//Cette route permet de mettre à jour la ville via le token du user, 
+//en utilisant un put pour créer OU remplacer
+// $set est une methode MongoDB qui permet de REMPLACER des données
 router.put("/modifyProfile", (req, res) => {
   User.updateOne(
     { token: req.body.token },
@@ -138,33 +151,42 @@ router.put("/modifyProfile", (req, res) => {
 });
 
 router.put("/like", (req, res) => {
+  // J'ai utilisé le module checkbody importé depuis le dossier 'modules'
+  // pour vérifier que tous les champs soient bien remplis
   if (!checkBody(req.body, ["token", "eventId"])) {
     res.json({ result: false, error: "Missing or empty fields" });
     return;
   }
+  // Je fais un findOne sur le token du user, pour savoir si l'utilisateur est connecté
 
   User.findOne({ token: req.body.token }).then((user) => {
     if (user === null) {
       res.json({ result: false, error: "User not found" });
       return;
     }
-
+  // Apres ca je findById un event pour vérifier qu'il existe
     Event.findById(req.body.eventId).then((event) => {
       console.log(event);
       if (event === null) {
         res.json({ result: false, error: "Event not found" });
         return;
       }
-
+  // Regarder si un event est deja enregistré dans les like de l'utilisateur
       if (user.like.includes(event._id)) {
-        // User already liked the Event
-        User.updateOne({ _id: user._id }, { $pull: { like: event._id } }) // Remove event ID from likes
+        
+        User.updateOne({ _id: user._id }, { $pull: { like: event._id } }) 
+        // L'updateOne nous permet de mettre a jour les like et nous utilisons une
+        // methode de l' ODM (object data modeling) mongoose nous enlevons
+        // l event des like s'il y etait deja
           .then(() => {
             res.json({ result: false });
           });
       } else {
-        // User has not liked the Event
-        User.updateOne({ _id: user._id }, { $push: { like: event._id } }) // Add event ID to likes
+        
+        User.updateOne({ _id: user._id }, { $push: { like: event._id } }) 
+        // L'updateOne nous permet de mettre a jour les like et nous utilisons une 
+        // methode de l'ODM (object data modeling) mongoose pour push (ajouter)
+        // l event dans les like de l'utilisateur 
           .then(() => {
             res.json({ result: true });
           });
